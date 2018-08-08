@@ -5,6 +5,7 @@ class Artist
   attr_reader :songs
   extend Memorable
   extend Findable
+  include Paramable
 
   @@artists = []
 
@@ -24,10 +25,6 @@ class Artist
 
   def add_songs(songs)
     songs.each { |song| add_song(song) }
-  end
-
-  def to_param
-    name.downcase.gsub(' ', '-')
   end
 
 end
